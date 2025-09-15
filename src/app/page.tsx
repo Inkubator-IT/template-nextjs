@@ -1,103 +1,117 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 
-export default function Home() {
+function App() {
+  const [count, setCount] = useState(0);
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
+    <div className="relative min-h-screen grid place-items-center overflow-hidden">
+      {/* Background gradient + subtle stripes */}
+      <div className="absolute inset-0 -z-20 bg-gradient-to-br via-[#0b0a0f] from-[#3f2b72] to-[#f5a524]" />
+      <div
+        className="absolute inset-0 -z-10 opacity-30"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(90deg, rgba(255,255,255,0.08) 0, rgba(255,255,255,0.08) 1px, transparent 1px, transparent 14px)",
+        }}
+      />
+      <div className="text-center text-white">
+        {/* Logos */}
+        <div className="flex items-center justify-center gap-12 my-10">
           <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://nextjs.org"
             target="_blank"
-            rel="noopener noreferrer"
+            className="transition-transform hover:scale-110"
+            rel="noreferrer"
           >
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="/next-white.svg"
+              className="logo drop-shadow-lg"
+              width={96}
+              height={96}
+              alt="Next.js logo"
             />
-            Deploy now
           </a>
           <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://github.com/Inkubator-IT"
             target="_blank"
-            rel="noopener noreferrer"
+            className="transition-transform hover:scale-110"
+            rel="noreferrer"
           >
-            Read our docs
+            <Image
+              src="/logo-iit.png"
+              alt="Inkubator IT"
+              className="h-16 w-auto drop-shadow-[0_6px_30px_rgba(0,0,0,0.35)]"
+              width={100}
+              height={100}
+            />
           </a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <h1 className="mt-4 text-4xl font-bold">Inkubator IT — Next.js</h1>
+        <p className="mt-2 text-sm text-gray-200">
+          Kickstart your frontend with Next.js, Tailwind, and Bun.
+        </p>
+
+        {/* Card */}
+        <div className="mt-8 inline-flex flex-col items-center gap-4 rounded-2xl border border-white/10 bg-white/10 p-6">
+          <button
+            type="button"
+            className="rounded-xl border border-white/20 px-5 py-2 text-base font-medium text-white shadow-sm transition hover:bg-white/10 active:scale-95 bg-white/5 backdrop-blur"
+            onClick={() => setCount((c: number) => c + 1)}
+          >
+            count is <span className="font-semibold">{count}</span>
+          </button>
+
+          <p className="text-sm text-gray-200">
+            Edit <code className="font-mono">src/app/page.tsx</code> and save to
+            test HMR
+          </p>
+        </div>
+
+        {/* Links */}
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-xl mx-auto">
+          <a
+            href="https://github.com/Inkubator-IT"
+            target="_blank"
+            rel="noreferrer"
+            className="group flex items-center justify-between rounded-xl border border-white/10 bg-white/10 px-4 py-3 text-left transition hover:shadow-sm"
+          >
+            <div>
+              <p className="font-medium">Inkubator IT on GitHub</p>
+              <p className="text-xs text-gray-200">
+                Templates, tooling, and examples
+              </p>
+            </div>
+          </a>
+          <a
+            href="https://nextjs.org/docs"
+            target="_blank"
+            rel="noreferrer"
+            className="rounded-xl border border-white/10 bg-white/10 px-4 py-3 text-left transition hover:shadow-sm"
+          >
+            <p className="font-medium">Next.js Docs</p>
+            <p className="text-xs text-gray-200">Fast dev server and build</p>
+          </a>
+          <a
+            href="https://nextjs.org/learn"
+            target="_blank"
+            rel="noreferrer"
+            className="rounded-xl border border-white/10 bg-white/10 px-4 py-3 text-left transition hover:shadow-sm"
+          >
+            <p className="font-medium">Tailwind CSS</p>
+            <p className="text-xs text-gray-200">Modern UI with hooks</p>
+          </a>
+        </div>
+
+        {/* Footer note */}
+        <p className="mt-8 text-sm text-gray-300">
+          Click on the logos to learn more • Built by Inkubator IT
+        </p>
+      </div>
     </div>
   );
 }
+
+export default App;
