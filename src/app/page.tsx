@@ -95,13 +95,13 @@ function App() {
             <p className="text-xs text-gray-200">Fast dev server and build</p>
           </a>
           <a
-            href="https://nextjs.org/learn"
+            href="https://tailwindcss.com/docs"
             target="_blank"
             rel="noreferrer"
             className="rounded-xl border border-white/10 bg-white/10 px-4 py-3 text-left transition hover:shadow-sm"
           >
             <p className="font-medium">Tailwind CSS</p>
-            <p className="text-xs text-gray-200">Modern UI with hooks</p>
+            <p className="text-xs text-gray-200">Utility-first styling</p>
           </a>
         </div>
 
